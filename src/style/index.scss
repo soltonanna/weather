@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --main-dark-color: #20202d;
+    --main-light-color: #eeeeee;
+    --error-color: #9c0606;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--main-dark-color);
+}
+
+.Weather {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(238, 238, 238, 0.5);
+    
+  .title {
+    text-align: left;
+    font-weight: 800;
+    font-size: 50px;
+    margin: 30px 0;
+    color:var(--main-dark-color);
+    font-family: 'Roboto Slab', serif;
+    transition: all 0.8s;
+
+  }
+  /* Search Form */
+  .search-form {
+    background-color: var(--main-light-color);
+    color:var(--main-dark-color);
+    border: 1px solid var(--main-light-color);
+    border-radius: 20px;
+    display: flex;
+    width: 100%;
+    padding: 3px;
+  }
+}
+

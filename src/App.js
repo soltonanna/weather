@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SearchForm from "./component/SearchForm";
+import Video from "./component/UI/Video/Video";
 
-function App() {
+function Weather() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Video autoPlay muted loop />
+      
+      <div className="Weather">
+        <h1 className="title"> Weather App</h1>
+        <SearchForm />
+      </div>
+    </>
+    
   );
 }
 
-export default App;
+export default Weather;
