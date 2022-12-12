@@ -17,37 +17,129 @@ body {
   background-color: var(--main-dark-color);
 }
 
-.Weather {
+ul, li {
+  list-style: none;
+}
+hr {
+  margin: 20px 0;
+}
+
+.weather {
   position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  padding: 20px;
+  width: 100%;
   display: flex;
   align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(238, 238, 238, 0.5);
+  flex-direction: row;
+  justify-content: space-evenly;
     
-  .title {
-    text-align: left;
-    font-weight: 800;
-    font-size: 50px;
-    margin: 30px 0;
-    color:var(--main-dark-color);
-    font-family: 'Roboto Slab', serif;
-    transition: all 0.8s;
 
-  }
   /* Search Form */
   .search-form {
     background-color: var(--main-light-color);
     color:var(--main-dark-color);
-    border: 1px solid var(--main-light-color);
-    border-radius: 20px;
     display: flex;
-    width: 100%;
     padding: 3px;
+    width: 100%;
   }
+
+  .left,
+  .right {
+    position: fixed;
+    padding: 20px;
+    width: 50%; height: 100vh;
+  }
+
+  .left {
+    top: 0; left: 5%;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+
+    & > div {
+      font-size: 40px;
+      text-align: center
+      ;
+    }
+  }
+
+  /* Right bar, weather full info */
+  .right {
+    background-color: rgb(32, 32, 45, 0.5);
+    top: 0; right: 0;
+    padding: 20px;
+    width: 30vw;
+   
+
+    -webkit-animation: slideBlock 1s ease-in 0s forwards;
+       -moz-animation: slideBlock 1s ease-in 0s forwards;
+         -o-animation: slideBlock 1s ease-in 0s forwards;
+            animation: slideBlock 1s ease-in 0s forwards;
+
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            
+    .full-data {
+      text-align: center;
+
+      &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #fff;
+
+        .icon {
+          width: auto;
+        }
+        .desc {
+          font-size: 50px;
+          color: #ffffff;
+          margin: 0 25px 0 0;
+          text-transform: capitalize;
+          font-family: 'Roboto Slab', sans-serif;
+        }
+      }
+
+      &__more {
+
+        ul li {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          align-content: center;
+          color: #ffffff;
+          margin-bottom: 15px;
+          text-align: left;
+
+          h3 {
+            min-width: 150px;
+            font-size: 20px;
+          }
+
+          p,
+          span {
+            font-weight: 600;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  
 }
 
+@keyframes slideBlock {
+  0% {
+    transform: translate(100%, 0);    
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
