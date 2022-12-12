@@ -1,48 +1,44 @@
 import React, { useState, useEffect } from 'react';
+import { useGeolocated } from "react-geolocated";
 
 const SearchByCoords = (props) => {
 
-    const [lat, setLat] = useState([]);
-    const [long, setLong] = useState([]);
-    const [error, setError] = useState('');
+  const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+    useGeolocated({
+        positionOptions: {
+            enableHighAccuracy: false,
+        },
+        userDecisionTimeout: 5000,
+    });
 
-    const [isError, setIsError] = useState(false);
-   
-    useEffect(() => {
+  const [lat, setLat] = useState(''); //40.1866752
+  const [long, setLong] = useState(''); //44.5251584
+  const [error, setError] = useState('');
+  
+  useEffect(() => {
+    if ( isGeolocationAvailable && isGeolocationEnabled && coords) {
       
-      if ( Object.keys(navigator.geolocation).length !== 0 ) {
+      setLat(coords.latitude);
+      setLong(coords.longitude);
 
-        navigator.geolocation.getCurrentPosition(function(position) {
-          setLat(position.coords.latitude);
-          setLong(position.coords.longitude);
-        });
-
-        const fetchDataByCoords = async () => {
-          await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-          .then(res => res.json())
-          .then(result => {
-            props.getWeatherFullInfo(result);
-          }); 
-        }
-        
-        fetchDataByCoords();
-        setIsError(false);
-        
-      } else {
-        setIsError(true);
-        setError("Geolocation is not supported by this browser. Try search by location name!!");
+      const fetchDataByCoords = async () => {
+        await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+        .then(res => res.json())
+        .then(result => {
+          props.getWeatherFullInfo(result);
+        }); 
       }
+      fetchDataByCoords();
 
-    }, [lat,long, isError])
-
-    
-    
-    return (
-      <>
-        { //isError && <h1>{error}</h1>
-        }
-      </>
-    )
+      setError('');
+    } else {
+      setError("Your browser does not support Geolocation or Geolocation is not enabled");
+    }
+  }, [coords, lat, long, isGeolocationAvailable, isGeolocationEnabled, props]);
+      
+  return (!isGeolocationAvailable || !isGeolocationEnabled) && (
+    <div>{error}</div>
+  );
 }
 
 export default SearchByCoords;

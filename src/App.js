@@ -91,6 +91,8 @@ function Weather() {
             sunrise={weatherInfo.sunrise}
             sunset={weatherInfo.sunset}
           />
+          <div className="copyright">Used free versions of videos from <a href="https://coverr.co/">
+          Coverr</a> site.</div>
         </div>
       </div>
     </> 

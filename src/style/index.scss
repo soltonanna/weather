@@ -73,6 +73,9 @@ hr {
     padding: 20px;
     width: 30vw;
    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     -webkit-animation: slideBlock 1s ease-in 0s forwards;
        -moz-animation: slideBlock 1s ease-in 0s forwards;
@@ -129,6 +132,12 @@ hr {
           }
         }
       }
+    }
+
+    .copyright, .copyright * {
+      color:#ffffff;
+      font-style: italic;
+      font-size: 16px;
     }
   }
   
