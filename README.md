@@ -1,4 +1,4 @@
-<img src="src/assets/WeatherApp.png" alt="Water App" />
+<img src="src/assets/WeatherApp.jpg" alt="Water App" />
 
 ## Weather App
 You can check weather of current location by coordinates, or search some location.

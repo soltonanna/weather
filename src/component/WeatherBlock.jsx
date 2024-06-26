@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaImage } from "react-icons/fa";
 
-const WeatherBlock = (props) => {
+const WeatherBlock = ({ description, icon, temp, humidity, windSpeed, sunrise, sunset }) => {
 
   return (
     <div>
         <div className='full-data__top'>
-             <p className='desc'>{props.description}</p>
-            { props.icon 
-                ? <img className="icon" src={`http://openweathermap.org/img/w/${props.icon}.png`} alt="Weather icon" /> 
+             <p className='desc'>{description}</p>
+            { icon 
+                ? <img className="icon" src={`http://openweathermap.org/img/w/${icon}.png`} alt="Weather icon" /> 
                 : <FaImage />
             }
         </div>
@@ -16,24 +16,24 @@ const WeatherBlock = (props) => {
             <ul>
             <li>
                 <h3>Temperature</h3>
-                <p>{props.temp} <span>°C</span></p>
+                <p>{temp} <span>°C</span></p>
             </li>
             <li>
                 <h3>Humidity</h3>
-                <p>{props.humidity} <span>%</span></p>
+                <p>{humidity} <span>%</span></p>
             </li>
             <li>
                 <h3>Wind speed</h3>
-                <p>{props.windSpeed} <span>Km/h</span></p>
+                <p>{windSpeed} <span>Km/h</span></p>
             </li>
             <hr />
             <li>
                 <h3>Sunrise</h3>
-                <p>{props.sunrise}</p>
+                <p>{sunrise}</p>
             </li>
             <li>
                 <h3>Sunset</h3>
-                <p>{props.sunset}</p>
+                <p>{sunset}</p>
             </li>
             </ul>
         </div>

@@ -1,0 +1,48 @@
+https://api.openweathermap.org/data/2.5/weather/?lat=40.1866752&lon=44.5251584&units=metric&APPID=298b159fdca7588ea735224044256be1
+
+
+{
+    "coord":{
+        "lon":44.5252,"lat":40.1867
+    },
+    "weather":[{
+        "id":520,
+        "main":"Rain",
+        "description":
+        "light intensity shower rain",
+        "icon":"09d"
+    }],
+    "base":"stations",
+    "main":{
+        "temp":20.79,
+        "feels_like":19.84,
+        "temp_min":20.79,
+        "temp_max":20.79,
+        "pressure":1010,
+        "humidity":35
+    },
+    "visibility":10000,
+    "wind":{
+        "speed":8.23,
+        "deg":90,
+        "gust":13.89
+    },
+    "rain":{
+        "1h":0.13
+    },
+    "clouds":{
+        "all":75
+    },
+    "dt":1719418942,
+    "sys":{
+        "type":1,
+        "id":8851,
+        "country":"AM",
+        "sunrise":1719365643,
+        "sunset":1719419721
+    },
+    "timezone":14400,
+    "id":616052,
+    "name":"Yerevan",
+    "cod":200
+}

@@ -27,11 +27,14 @@ hr {
 .weather {
   position: fixed;
   width: 100%;
+  height: 100vh;
   display: flex;
   align-items: flex-start;
   flex-direction: row;
   justify-content: space-evenly;
-    
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   /* Search Form */
   .search-form {
